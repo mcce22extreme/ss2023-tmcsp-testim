@@ -52,6 +52,34 @@ Example see here:
 
 (Re)start the simulator afterwards.
 
+### Tricentis Testim
+
+Login to [Testim](https://app.testim.io/) and choose the Android project you want to work with.
+
+#### Local agent
+
+In the top right verify if a local agent is running. When the agent is not running or was never installed it looks like this:
+
+![](.docs/images/tricentis_mobile_agent_missing.png)
+
+Follow the instructions and after the installation it should look like this:
+
+![](.docs/images/tricentis_mobile_agent_found.png)
+
+Also notice the number of virtual devices listed in the screenshot above. That is the running simulator which was configured [before](#local-android-emulator).
+
+#### Adding the grid config
+
+Go to the settings of the project, then choose `CLI` and then `Manage grids` and click the `+` to add a new grid.
+
+Here choose `Testim Headspin Mobile`, then change the name if you want and set the token value to the token you got [before](#headspin).
+
+Now go back to the `CLI` overview and choose the new grid. The example will show a functioning call of the CLI, which only misses a few parameters:
+
+![](.docs/images/testim_cli_example.png)
+
+This is the base for running the CLI manually and automated.
+
 
 ## Sync GitHub to GitLab repository
 
