@@ -6,6 +6,7 @@ e2e-test-android:   # This job runs in the test stage.
     - changes:
         - 'README.md'
         - 'images/**/*'
+        - '.docs/**/*'
       when: never
     - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_REF_NAME == "main" || $CI_COMMIT_REF_NAME == "develop")'
       when: always
