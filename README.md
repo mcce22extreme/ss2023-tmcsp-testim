@@ -51,3 +51,31 @@ Example see here:
 ![android_simulator_settings.png](.docs/images/android_simulator_settings.png)
 
 (Re)start the simulator afterwards.
+
+
+## Sync GitHub to GitLab repository
+
+Assuming you cloned the repository from GitHub, you will get the following output:
+```bash
+$ git remote -v
+origin  https://github.com/mcce22extreme/ss2023-tmcsp-testim.git (fetch)
+origin  https://github.com/mcce22extreme/ss2023-tmcsp-testim.git (push)
+```
+
+To sync the `main` branch to GitLab you need to add GitLab as second remote and push all changes to there.
+```bash
+# Add gitlab as remote
+$ git remote add gitlab https://gitlab.com/mcce22extreme/ss2023-tmcsp-testim.git
+# Verify result
+$ git remote -v
+origin  https://github.com/mcce22extreme/ss2023-tmcsp-testim.git (fetch)
+origin  https://github.com/mcce22extreme/ss2023-tmcsp-testim.git (push)
+gitlab        https://gitlab.com/mcce22extreme/ss2023-tmcsp-testim.git (fetch)
+gitlab        https://gitlab.com/mcce22extreme/ss2023-tmcsp-testim.git (push)
+# get latest changes from main
+$ git checkout main
+$ git pull
+# ! Attention, careful !
+# push latest changes to main on gitlab, assuming you have direct push rights
+$ git push upstream main
+```
