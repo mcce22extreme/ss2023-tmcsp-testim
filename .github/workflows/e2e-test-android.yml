@@ -21,19 +21,20 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TESTIM_TOKEN: ${{ secrets.TESTIM_TOKEN }}
+      TESTIM_PROJECT: ${{ vars.TESTIM_PROJECT }}
       TESTIM_GRID: GroupB-agruber
       TESTIM_LABEL: GroupB
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.13.0'
+          node-version: '18.16.0'
       - run: npm install -g @testim/testim-cli
       - run: |
-          ls -la $(pwd)
+          ls -la $GITHUB_WORKSPACE
           export
-          testim --token "$TESTIM_TOKEN" --project "$TESTIM_PROJECT" --grid "$TESTIM_GRID" --label "$TESTIM_LABEL" --mode appium -c $(pwd)/testimConfig.js -r $(pwd)/testim-report.xml
-          ls -la $(pwd)
+          testim --token "$TESTIM_TOKEN" --project "$TESTIM_PROJECT" --grid "$TESTIM_GRID" --label "$TESTIM_LABEL" --mode appium -c $GITHUB_WORKSPACE/testimConfig.js -r $GITHUB_WORKSPACE/testim-report.xml
+          ls -la $GITHUB_WORKSPACE
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v3
         if: success() || failure() # always run even if the previous step fails
