@@ -6,6 +6,7 @@ e2e-test-android:   # This job runs in the test stage.
     - changes:
         - 'README.md'
         - 'images/**/*'
+        - '.docs/**/*'
       when: never
     - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_REF_NAME == "main" || $CI_COMMIT_REF_NAME == "develop")'
       when: always
@@ -25,7 +26,8 @@ e2e-test-android:   # This job runs in the test stage.
     - docker:stable-dind
   script:
     - docker pull $TESTIM_DOCKER
-    - docker run --rm -v "$(pwd)":/opt/testim-runner $TESTIM_DOCKER --token "$TESTIM_TOKEN" --project "$TESTIM_PROJECT" --grid "$TESTIM_GRID" --label "$TESTIM_LABEL" --mode appium -r /opt/testim-runner/testim-report.xml
+    - ls -la $(pwd)
+    - docker run --rm -v "$(pwd)":/opt/testim-runner $TESTIM_DOCKER --token "$TESTIM_TOKEN" --project "$TESTIM_PROJECT" --grid "$TESTIM_GRID" --label "$TESTIM_LABEL" --mode appium -c /opt/testim-runner/testimConfig.js -r /opt/testim-runner/testim-report.xml
   artifacts:
     paths:
       - testim-report.xml
