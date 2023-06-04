@@ -80,6 +80,25 @@ Now go back to the `CLI` overview and choose the new grid. The example will show
 
 This is the base for running the CLI manually and automated.
 
+## Create a test
+
+### Record the test
+
+### Doing local verification
+
+### Add custom testdata
+
+### Add verification
+
+## CLI
+
+## Automation
+
+### GitHub
+https://help.testim.io/docs/github-action-integration
+
+### GitLab
+https://help.testim.io/docs/gitlab-integration
 
 ## Sync GitHub to GitLab repository
 
