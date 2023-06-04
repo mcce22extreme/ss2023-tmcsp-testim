@@ -1,0 +1,41 @@
+name: Run testim e2e tests for Android  
+
+on:
+  push:
+    branches: [ "main", "release/*", "develop", "develop/*" ]
+    paths-ignore:
+      - '.docs/**'
+      - 'images/**'
+      - 'README.md'
+  pull_request:
+    branches: [ "main", "release/*", "develop", "develop/*" ]
+    paths-ignore:
+      - '.docs/**'
+      - 'images/**'
+      - 'README.md'
+  release:
+    types: [published]
+
+jobs:
+  e2e-test-android:
+    runs-on: ubuntu-latest
+    env:
+      TESTIM_TOKEN: ${{ secrets.TESTIM_TOKEN }}
+      TESTIM_GRID: GroupB-agruber
+      TESTIM_LABEL: GroupB
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.13.0'
+      - run: npm install -g @testim/testim-cli
+      - run: |
+          ls -la $(pwd)
+          export
+          testim --token "$TESTIM_TOKEN" --project "$TESTIM_PROJECT" --grid "$TESTIM_GRID" --label "$TESTIM_LABEL" --mode appium -c $(pwd)/testimConfig.js -r $(pwd)/testim-report.xml
+          ls -la $(pwd)
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: success() || failure() # always run even if the previous step fails
+        with:
+          report_paths: 'testim-report.xml'
