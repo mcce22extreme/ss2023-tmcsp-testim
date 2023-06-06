@@ -130,6 +130,26 @@ The test result is also indicated on each test step in the top left corner of th
 
 ## CLI
 
+### Using the right command
+
+During configuration of the [grids](#adding-the-grid-config), the example call of testim CLI shows all required parameters.
+
+```bash
+npm i -g @testim/testim-cli && testim --token "<testim-token>" --project "<testim-project-id>" --grid "GroupB" --mode appium --label "GroupB" -c /tmp/testimConfig.js
+```
+
+To the command above, added parameters to the example are:
+- `--label "GroupB"`: only tests with the label 'Group B' are executed
+- `-c /tmp/testimConfig.js`: configuration file to adapt parts of the test configuration
+
+Without Node installed one can also use the official `testim/docker-cli` Docker image to run the testim CLI:
+
+```bash
+docker run --rm -it -v c:\work\testimConfig.js:/tmp/testimConfig.js testim/docker-cli --token "<testim-token>" --project "<testim-project-id>" --grid "GroupB" --mode appium --label "GroupB" -c /tmp/testimConfig.js
+```
+
+### Verify testing on Headspin
+
 ## Automation
 
 ### GitHub
