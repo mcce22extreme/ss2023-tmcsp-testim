@@ -74,11 +74,11 @@ That is the running simulator which was configured [before](#local-android-emula
 
 #### Adding the grid config
 
-Go to the settings of the project, then choose `CLI` and then `Manage grids` and click the `+` to add a new grid.
+Go to the settings of the project, then choose 'CLI' and then 'Manage grids' and click the '+' to add a new grid.
 
-Here choose `Testim Headspin Mobile`, then change the name if you want and set the token value to the token you got [before](#headspin).
+Here choose 'Testim Headspin Mobile', then change the name if you want and set the token value to the token you got [before](#headspin).
 
-Now go back to the `CLI` overview and choose the new grid.
+Now go back to the 'CLI' overview and choose the new grid.
 The example will show a functioning call of the CLI, which only misses a few parameters:
 
 ![](.docs/images/testim_cli_example.png)
@@ -87,9 +87,42 @@ This is the base for running the CLI manually and automated.
 
 ## Create a test
 
+First you need to create a test on a local device (Simulator device is recommended).
+
+In [Testim](https://app.testim.io/) in your Android project, go to 'Mobile Apps' and make sure the App you want to test is listed there.
+If that is not the case you can upload the .APK file there.
+
 ### Record the test
 
+Go to 'Test list' and then select '+ New Test' in the top navigation.
+
+Press the red 'Record' button, select the device you want to record the test with and select 'Next'.
+
+![](.docs/images/testim_start_record_test.png)
+
+Then choose the App you want to test from your App library and select 'Done'
+
+![](.docs/images/testim_start_record_app_select.png)
+
+The Tricentis Mobile Agent will open a window showing the device and loading the application to test.
+Once the application the recording of the test can start.
+Just use the App from withing the Mobile Client and every made interaction with the app is recorded.
+
+![](.docs/images/testim_record.png)
+
+Close the Mobile Client once the recording is done.
+Save the test with the button on the top right and give the test a fitting name.
+
 ### Doing local verification
+
+Local verification can be done by any device attached to Tricentis Mobile Agent.
+Just open the test from the 'Test list' and press the 'Run test'/'Play' button.
+
+An information at the top will show the result and at the top left the result is shown together with the time needed for the tests.
+The test result is also indicated on each test step in the top left corner of the test step with a green or red icon.
+
+![](.docs/images/testim_test_passed.png)
+
 
 ### Add custom testdata
 
