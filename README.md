@@ -124,5 +124,5 @@ $ git checkout main
 $ git pull
 # ! Attention, careful !
 # push latest changes to main on gitlab, assuming you have direct push rights
-$ git push upstream main
+$ git push gitlab main
 ```
