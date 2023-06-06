@@ -8,7 +8,7 @@ Automated testing of Tricentis Insurance Calculator App Android with Tricentis T
 
 The test case created in the task is to be executed automatically in a pipeline on a HeadSpin device. A manual trigger is sufficient.
 
-Deliverables
+Deliverables:
 - A project documentation is to be handed in, which contains all the configuration steps that have been carried out
 - The configuration itself should also be presented in a live demo on 22.06. be presented
 
