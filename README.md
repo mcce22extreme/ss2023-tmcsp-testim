@@ -6,7 +6,8 @@ Technical management of cloud solutions PT module testing
 
 Automated testing of Tricentis Insurance Calculator App Android with Tricentis Testim and GitLab CI as CI/CD platform.
 
-The test case created in the task is to be executed automatically in a pipeline on a HeadSpin device. A manual trigger is sufficient.
+The test case created in the task is to be executed automatically in a pipeline on a HeadSpin device.
+A manual trigger is sufficient.
 
 Deliverables
 - A project documentation is to be handed in, which contains all the configuration steps that have been carried out
@@ -19,14 +20,15 @@ The following screens are to be automated for a test case:
 - Product Details
 - Quote
 
-All dropdown menus in the app are to be automated in such a way that they mimic the user interactions of a real user
+All dropdown menus in the app are to be automated in such a way that they mimic the user interactions of a real user.
 
 The vehicle information in the Quote Page should be validated.
 - Make, Year of construction, Performance, Fuel, Mileage Per Year, List price
 
 ## Setup
 
-A lot of tools are involved in this whole project, some need to talk to each other. This chapter is about configuration and enabling data exchange between the involved tools.
+A lot of tools are involved in this whole project, some need to talk to each other.
+This chapter is about configuration and enabling data exchange between the involved tools.
 
 ### Headspin
 
@@ -58,7 +60,8 @@ Login to [Testim](https://app.testim.io/) and choose the Android project you wan
 
 #### Local agent
 
-In the top right verify if a local agent is running. When the agent is not running or was never installed it looks like this:
+In the top right verify if a local agent is running.
+When the agent is not running or was never installed it looks like this:
 
 ![](.docs/images/tricentis_mobile_agent_missing.png)
 
@@ -66,7 +69,8 @@ Follow the instructions and after the installation it should look like this:
 
 ![](.docs/images/tricentis_mobile_agent_found.png)
 
-Also notice the number of virtual devices listed in the screenshot above. That is the running simulator which was configured [before](#local-android-emulator).
+Also notice the number of virtual devices listed in the screenshot above.
+That is the running simulator which was configured [before](#local-android-emulator).
 
 #### Adding the grid config
 
@@ -74,7 +78,8 @@ Go to the settings of the project, then choose `CLI` and then `Manage grids` and
 
 Here choose `Testim Headspin Mobile`, then change the name if you want and set the token value to the token you got [before](#headspin).
 
-Now go back to the `CLI` overview and choose the new grid. The example will show a functioning call of the CLI, which only misses a few parameters:
+Now go back to the `CLI` overview and choose the new grid.
+The example will show a functioning call of the CLI, which only misses a few parameters:
 
 ![](.docs/images/testim_cli_example.png)
 
