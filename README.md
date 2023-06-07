@@ -123,10 +123,42 @@ The test result is also indicated on each test step in the top left corner of th
 
 ![](.docs/images/testim_test_passed.png)
 
+### Add custom test data
 
-### Add custom testdata
+Instead of hard-code the input data into each step where text is entered, it can also be defined in the properties of the first step, like described in the testim documentation about [Configuring a Data-driven Test From The Visual Editor](https://help.testim.io/docs/configuring-a-data-driven-test-from-the-visual-editor).
+
+Example test data:
+```json
+return [
+{
+  "make": "BMW",
+  "year": "2013",
+  "listprice": "55000",
+  "fuel": "Petrol",
+  "performance": "140",
+  "yearlymileage": "12000",
+}
+];
+```
+
+At the 'Set text' steps the 'Text to assign' property needs to be changed to the name of the variable in the test data.
+
+![](.docs/images/testim_text_assignment.png)
 
 ### Add input validation
+
+Data validation can be done by reading UI elements, so make sure to have the app showing the UI elements to be verified.
+If the elements are not shown yet in the test, just run the test again.
+At the end of the test, press the record button beside the last step to start recording at that position.
+Then navigate through the app to the place of the UI elements to be verified and stop the recording.
+
+At the new last step choose the 'M' labelled button 'Testim predefined steps' and then 'Validate element text'. Then choose the value to be validated in the Mobile Agent.
+
+![](.docs/images/testim_validate_text.png)
+
+Instead of the hard-coded value it is recommended to change the expected value in the properties of the step to the variable defined in the test data.
+
+![](.docs/images/testim_variable_expected_value.png)
 
 ## CLI
 
@@ -149,6 +181,9 @@ docker run --rm -it -v c:\work\testimConfig.js:/tmp/testimConfig.js testim/docke
 ```
 
 ### Verify testing on Headspin
+
+### Test with different input data
+
 
 ## Automation
 
