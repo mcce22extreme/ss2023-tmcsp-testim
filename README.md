@@ -126,11 +126,11 @@ The test result is also indicated on each test step in the top left corner of th
 
 ### Add custom testdata
 
-### Add verification
+### Add input validation
 
 ## CLI
 
-### Using the right command
+### The command
 
 During configuration of the [grids](#adding-the-grid-config), the example call of testim CLI shows all required parameters.
 
