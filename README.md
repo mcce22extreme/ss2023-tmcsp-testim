@@ -128,7 +128,7 @@ The test result is also indicated on each test step in the top left corner of th
 Instead of hard-code the input data into each step where text is entered, it can also be defined in the properties of the first step, like described in the testim documentation about [Configuring a Data-driven Test From The Visual Editor](https://help.testim.io/docs/configuring-a-data-driven-test-from-the-visual-editor).
 
 Example test data:
-```json
+```js
 return [
 {
   "make": "BMW",
@@ -162,6 +162,8 @@ Instead of the hard-coded value it is recommended to change the expected value i
 
 ## CLI
 
+Using the testim CLI it is possible to run certain operations from the command line, which in turn can be used for automation.
+
 ### The command
 
 During configuration of the [grids](#adding-the-grid-config), the example call of testim CLI shows all required parameters.
@@ -182,16 +184,38 @@ docker run --rm -it -v c:\work\testimConfig.js:/tmp/testimConfig.js testim/docke
 
 ### Verify testing on Headspin
 
+testim CLI does not support running tests on a local machine using the Tricentis Mobile Agent.
+Instead, it will run on the [Grids defined before](#adding-the-grid-config).
+One of the [supported platforms](https://help.testim.io/docs/grid-management) is Headspin.
+
+In the example below the test cases are filtered by labels with `--label` and a dedicated device is chosen with `--device-udid`.
+
+![](.docs/images/testim_cli_failed_testrun.png)
+
+After finishing the test run, a link is provided to view details.
+This also includes screenshots captured during the test run from the devices at Headspin.
+
+When the test is in progress it is also possible to watch the progress live on Headspin via the devices list.
+
 ### Test with different input data
 
+If custom test data is [used](#add-custom-test-data) and verified, this test data can be replaced by multiple sets of test data with a configuration file.
+
+The [example command](#the-command) shows how the usage is enabled, and an example is provided [here](./testimConfig.js).
 
 ## Automation
 
 ### GitHub
+
 https://help.testim.io/docs/github-action-integration
 
+The GitHub action is implemented [here](./.github/workflows/e2e-test-android.yml).
+
 ### GitLab
+
 https://help.testim.io/docs/gitlab-integration
+
+The GitLab CI pipeline is implemented [here](./.gitlab-ci.yml).
 
 ## Sync GitHub to GitLab repository
 
