@@ -201,7 +201,7 @@ When the test is in progress it is also possible to watch the progress live on H
 
 If custom test data is [used](#add-custom-test-data) and verified, this test data can be replaced by multiple sets of test data with a configuration file.
 
-The [example command](#the-command) shows how the usage is enabled, and an example is provided [here](./testimConfig.js).
+The [example command](#the-command) shows how the usage is enabled (parameter `-c <file>`), and an example is provided [here](./testimConfig.js).
 
 ## Automation
 
