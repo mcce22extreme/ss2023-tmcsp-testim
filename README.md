@@ -105,8 +105,8 @@ Then choose the App you want to test from your App library and select 'Done'
 ![](.docs/images/testim_start_record_app_select.png)
 
 The Tricentis Mobile Agent will open a window showing the device and loading the application to test.
-Once the application the recording of the test can start.
-Just use the App from withing the Mobile Client and every made interaction with the app is recorded.
+Once the application is loaded, the recording of the test can start.
+Just use the App from within the Mobile Client and every made interaction with the app is recorded.
 
 ![](.docs/images/testim_record.png)
 
@@ -162,7 +162,7 @@ Instead of the hard-coded value it is recommended to change the expected value i
 
 ## CLI
 
-Using the testim CLI it is possible to run certain operations from the command line, which in turn can be used for automation.
+By using the testim CLI, it is possible to run certain operations from the command line, which in turn can be used for automation.
 
 ### The command
 
@@ -195,7 +195,7 @@ In the example below the test cases are filtered by labels with `--label` and a 
 After finishing the test run, a link is provided to view details.
 This also includes screenshots captured during the test run from the devices at Headspin.
 
-When the test is in progress it is also possible to watch the progress live on Headspin via the devices list.
+When the test is in progress, it is also possible to watch the progress live on Headspin via the devices list.
 
 ### Test with different input data
 
