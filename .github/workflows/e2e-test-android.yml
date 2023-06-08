@@ -1,23 +1,23 @@
 name: Run testim e2e tests for Android  
 
-on:
-  push:
+on: 
+  push: # Always run for changes to main/develop/release branches, except for changes to readme
     branches: [ "main", "release/*", "develop", "develop/*" ]
     paths-ignore:
       - '.docs/**'
       - 'images/**'
       - 'README.md'
-  pull_request:
+  pull_request: # Always run for pull requests against main/develop/release branches, except for changes to readme
     branches: [ "main", "release/*", "develop", "develop/*" ]
     paths-ignore:
       - '.docs/**'
       - 'images/**'
       - 'README.md'
-  release:
+  release: # Always run for releases
     types: [published]
 
 jobs:
-  e2e-test-android:
+  e2e-test-android: # Based of Testim documentation
     runs-on: ubuntu-latest
     env:
       TESTIM_TOKEN: ${{ secrets.TESTIM_TOKEN }}
