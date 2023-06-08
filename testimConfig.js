@@ -15,6 +15,14 @@ exports.config = {
             "yearlymileage": "10000",
           },
           {
+            "make": "Tesla",
+            "year": "2019",
+            "listprice": "63000",
+            "fuel": "Electric",
+            "performance": "300",
+            "yearlymileage": "10000",
+          },
+          {
             "make": "BMW",
             "year": "2013",
             "listprice": "55000",
