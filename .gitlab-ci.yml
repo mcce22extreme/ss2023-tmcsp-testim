@@ -3,20 +3,21 @@ stages:          # List of stages for jobs, and their order of execution
 
 e2e-test-android:   # This job runs in the test stage.
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "web" || $CI_PIPELINE_SOURCE == "schedule"'
+      when: always       # Always run this job when started manually or via schedule
     - changes:
         - 'README.md'
         - 'images/**/*'
         - '.docs/**/*'
-      when: never
+      when: never        # Do not run the job for changes to the readme
     - if: '$CI_PIPELINE_SOURCE == "push" && ($CI_COMMIT_REF_NAME == "main" || $CI_COMMIT_REF_NAME == "develop")'
-      when: always
-    - changes:
-        - '**/*'
-      if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop")'
-      when: always
+      when: always       # Always run for changes for main or develop branch
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop")'
+      when: always       # Always run for merge requests against main or develop branch
 
   stage: test    # It only starts when the job in the build stage completes successfully.
 
+  # From Testim documentation
   image: docker:git
   variables:
     TESTIM_DOCKER: testim/docker-cli
@@ -26,7 +27,6 @@ e2e-test-android:   # This job runs in the test stage.
     - docker:stable-dind
   script:
     - docker pull $TESTIM_DOCKER
-    - ls -la $(pwd)
     - docker run --rm -v "$(pwd)":/opt/testim-runner $TESTIM_DOCKER --token "$TESTIM_TOKEN" --project "$TESTIM_PROJECT" --grid "$TESTIM_GRID" --label "$TESTIM_LABEL" --mode appium -c /opt/testim-runner/testimConfig.js -r /opt/testim-runner/testim-report.xml
   artifacts:
     paths:
