@@ -205,17 +205,23 @@ The [example command](#the-command) shows how the usage is enabled (parameter `-
 
 ## Automation
 
+Running automated tests can have a huge impact on the quality of software by ensuring repeatable and stable results.
+
+Due to having the testim CLI it is easily possible to integrate testim automated testing in various popular platforms.
+
 ### GitHub
 
+The basic integration is described here:
 https://help.testim.io/docs/github-action-integration
 
-The GitHub action is implemented [here](./.github/workflows/e2e-test-android.yml).
+The GitHub action is implemented in [e2e-test-android.yml](./.github/workflows/e2e-test-android.yml).
 
 ### GitLab
 
+The basic integration is described here:
 https://help.testim.io/docs/gitlab-integration
 
-The GitLab CI pipeline is implemented [here](./.gitlab-ci.yml).
+The GitLab CI pipeline is implemented in [.gitlab-ci.yml](./.gitlab-ci.yml).
 
 ## Sync GitHub to GitLab repository
 
@@ -226,7 +232,7 @@ origin  https://github.com/mcce22extreme/ss2023-tmcsp-testim.git (fetch)
 origin  https://github.com/mcce22extreme/ss2023-tmcsp-testim.git (push)
 ```
 
-To sync the `main` branch to GitLab you need to add GitLab as second remote and push all changes to there.
+To sync the `main` branch from GitHub to GitLab you need to add GitLab as second remote and push all changes to there.
 ```bash
 # Add gitlab as remote
 $ git remote add gitlab https://gitlab.com/mcce22extreme/ss2023-tmcsp-testim.git
