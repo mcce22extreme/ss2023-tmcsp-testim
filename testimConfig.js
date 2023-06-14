@@ -7,7 +7,7 @@ exports.config = {
       overrideTestData: {                 
         "e2e-insurance-calc": [
           {
-            "make": "Audi",
+            "make": "BMW",
             "year": "2010",
             "listprice": "45000",
             "fuel": "DieselFuel",
