@@ -13,14 +13,6 @@ exports.config = {
             "fuel": "DieselFuel",
             "performance": "120",
             "yearlymileage": "10000",
-          },
-          {
-            "make": "Mercedes",
-            "year": "2013",
-            "listprice": "55000",
-            "fuel": "Petrol",
-            "performance": "140",
-            "yearlymileage": "12000",
           }
         ]
       }
